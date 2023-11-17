@@ -1,9 +1,6 @@
 # TOXIC GAS LEAK DETECTION AND ALERT DEVICE USING IOT AND ML:
 
-    Harmful gas leakage is a serious safety hazard. Current gas detection systems are often expensive, complex, and require regular maintenance.
-This project aims to develop a low-cost, easy-to-deploy, and reliable system for detecting harmful gas leakage without connecting to other devices.
-The system will use an **ESP8266 module**, **MQ-135** gas sensor, **DHT11** Sensor,and ML algorithm to collect and analyze data from the gas sensor to detect harmful gases
-and send alerts to the people in the surroundings.
+    Harmful gas leakage is a serious safety hazard. Current gas detection systems are often expensive, complex, and require regular maintenance.This project aims to develop a low-cost, easy-to-deploy, and reliable system for detecting harmful gas leakage without connecting to other devices.The system will use an **ESP8266 module**, **MQ-135** gas sensor, **DHT11** Sensor,and ML algorithm to collect and analyze data from the gas sensor to detect harmful gases and send alerts to the people in the surroundings.
 
 ## Features:
 Recieves Tempareture and Humidity data from DHT11 Senosr.
