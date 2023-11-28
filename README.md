@@ -21,10 +21,17 @@ Blynk IoT application
 
 ## External connectivity:
 
+### DHT11: 
 ![WhatsApp Image 2023-11-17 at 13 59 47_bb3dc5b4](https://github.com/Pavan-Gv/MiniProject/assets/94827772/21da3f6e-63fe-447c-9191-16428bc58a13)
+
+### MQ-135:
 ![WhatsApp Image 2023-11-17 at 13 59 48_108ff893](https://github.com/Pavan-Gv/MiniProject/assets/94827772/af551e6b-0b87-422b-af2d-a97e6cba037e)
-![WhatsApp Image 2023-11-17 at 13 59 48_54b5edcd](https://github.com/Pavan-Gv/MiniProject/assets/94827772/700773b7-fbed-49d4-b4b7-8546bc966037)
+
+### ESP8266:
 ![WhatsApp Image 2023-11-17 at 13 59 49_8069652f](https://github.com/Pavan-Gv/MiniProject/assets/94827772/3564317a-2800-479f-ba1a-113084a5c461)
+
+### Final Connectivity:
+![WhatsApp Image 2023-11-17 at 13 59 48_54b5edcd](https://github.com/Pavan-Gv/MiniProject/assets/94827772/700773b7-fbed-49d4-b4b7-8546bc966037)
 
 ## Program
 ### Ardunio Code: 
