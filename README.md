@@ -284,8 +284,21 @@ void sen()
 ```
 
 ## Output:
-### Readings on IoT application Blynk:
-![image](https://github.com/Pavan-Gv/MiniProject/assets/94827772/d1dc03ad-bfb0-45e3-bcbf-e098dd2361a5)
+### Blynk Monitering:
+![Monitering](https://github.com/Pavan-Gv/MiniProject/assets/94827772/1e5bf288-ef05-4311-b91f-4667c932f6c0)
+### Arduino Serial Moniter:
+![IDE](https://github.com/Pavan-Gv/MiniProject/assets/94827772/56ef2408-ff0b-4bb7-9bee-1de2477c9796)
+### ML Algorithm Predictions:
+![Algorithm](https://github.com/Pavan-Gv/MiniProject/assets/94827772/50d11f59-c2d0-4a94-b32e-ac30028bbc5f)
+
+### Graphical Representation:
+![Values Graph](https://github.com/Pavan-Gv/MiniProject/assets/94827772/f22b1efe-bdf8-4ebe-a1cb-d23d341bf577)
+![A Vs P](https://github.com/Pavan-Gv/MiniProject/assets/94827772/d02cbbfd-6795-4906-825c-4e896530c19d)
+
+### ALERTS PRODUCED:
+![Phone Notificaton](https://github.com/Pavan-Gv/MiniProject/assets/94827772/512b5720-74a8-451e-b017-ff30084bfaa9)
+![Mail Notification](https://github.com/Pavan-Gv/MiniProject/assets/94827772/e2b250f5-1200-4b93-a948-376e2383c362)
+
 
 
 ## Result
