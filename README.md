@@ -20,6 +20,7 @@ Blynk IoT application
 <img width="468" alt="image" src="https://github.com/KoduruSanathKumarReddy/WeatherForecast/assets/69503902/6032e99e-e7dd-446a-ac28-81f80ec425e4">
 
 ## Program
+### Ardunio Code: 
 ```c
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
@@ -111,6 +112,163 @@ void sendIFTTTEvent() {
   }
 }
 ```
+### Machine Learning Algorithm:
+```python
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+import matplotlib.pyplot as plt
+from twilio.rest import Client
+
+# Read data from CSV file
+file_path = 'Tox.csv'
+data = pd.read_csv(file_path)
+
+account_sid = 'ACf4cc7924e94e56e5e53e5e9e25d36de3'
+auth_token = '912bcebdc0203a05df64b34861bfb281'
+twilio_phone_number = '+12674154835'
+recipient_phone_number = '+919346016760'
+
+# Your Twilio client
+client = Client(account_sid, auth_token)
+
+# Threshold for high toxicity (adjust as needed)
+high_toxicity_threshold = 0.100
+# Split the data into training and testing sets
+train_data, test_data, train_toxicity, test_toxicity = train_test_split(
+    data[['PPM', 'Humidity', 'Temperature']],
+    data['Toxicity'],  # Change 'Leak' to 'Toxicity'
+    test_size=0.2,
+    random_state=42
+)
+
+# Create a simple machine learning pipeline for regression
+model = Pipeline([
+    ('scaler', StandardScaler()),  # Standardize features
+    ('regressor', RandomForestRegressor(random_state=42))  # Use a RandomForestRegressor for regression
+])
+
+# Train the model
+model.fit(train_data, train_toxicity)
+
+# Make predictions on the test set
+predictions = model.predict(test_data)
+
+# Evaluate the model
+mse = mean_squared_error(test_toxicity, predictions)
+print(f'Mean Squared Error: {mse:.2f}')
+
+# Plot the flow of three values
+plt.figure(figsize=(10, 6))
+plt.plot(predictions, label='Predictions')
+plt.plot(test_toxicity.values, label='Actual Toxicity')
+plt.xlabel('Data Points')
+plt.ylabel('Toxicity Level')
+plt.title('Predicted vs Actual Toxicity')
+plt.legend()
+plt.show()
+plt.figure(figsize=(10, 6))
+plt.plot(data['PPM'], label='PPM')
+plt.plot(data['Humidity'], label='Humidity')
+plt.plot(data['Temperature'], label='Temperature')
+plt.xlabel('Data Points')
+plt.ylabel('Values')
+plt.title('Values from CSV File')
+plt.legend()
+plt.show()
+# Now, you can use this trained model to make predictions on new data
+# Replace the following values with your actual sensor readings
+new_data = pd.DataFrame({
+    'PPM': [500],
+    'Humidity': [50],
+    'Temperature': [25]
+})
+
+predicted_toxicity = model.predict(new_data)[0]
+
+# Classify toxicity level based on specified ranges
+if predicted_toxicity < 100:
+    toxicity_level = "Low toxicity"
+elif 100 <= predicted_toxicity < 500:
+    toxicity_level = "Moderate toxicity"
+else:
+    toxicity_level = "High toxicity"
+
+print(f'Predicted Toxicity: {predicted_toxicity:.2f} - {toxicity_level}')
+
+if predicted_toxicity >= high_toxicity_threshold:
+    # Send SMS notification
+    message_body = f'Gas toxicity level is high: {predicted_toxicity:.2f}'
+    message = client.messages.create(
+        body=message_body,
+        from_=twilio_phone_number,
+        to=recipient_phone_number
+    )
+    print(f'SMS Sent: {message.sid}')
+else:
+    print('Gas toxicity level is not high. No SMS sent.')
+
+```
+### Basic Trigger HTML Code:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0;https://maker.ifttt.com/trigger/gas_leakd/with/key/bm3rXYTDiawPYVrzmRvBmY">
+    <title>Redirecting...</title>
+</head>
+<body>
+    <p>If you are not redirected, <a href="URL_TO_REDIRECT">click here</a>.</p>
+</body>
+</html>
+```
+### DataSet Transmission Code:
+```c++
+void sen()
+{
+// HTTPClient https;
+  if (!client.connect(host, httpsPort))
+  {
+    Serial.println("connection failed");
+    return;
+  }
+
+  String url = "/macros/s/" + GAS_ID + "/exec?value1="+name1+"&value2="+age1;
+  Serial.print("requesting URL: ");
+  Serial.println(url);
+  client.print(String("GET ") + url + " HTTP/1.1\r\n" +
+         "Host: " + host + "\r\n" +
+         "User-Agent: BuildFailureDetectorESP8266\r\n" +
+         "Connection: close\r\n\r\n");
+
+  Serial.println("request sent");
+  while (client.connected()) {
+    String line = client.readStringUntil('\n');
+    if (line == "\r") {
+      Serial.println("headers received");
+      break;
+    }
+  }
+  String line = client.readStringUntil('\n');
+  if (line.startsWith("{\"state\":\"success\"")) 
+  {
+    Serial.println("esp8266/Arduino CI successfull!");
+  } 
+  else 
+  {
+    Serial.println("esp8266/Arduino CI has failed");
+  }
+  Serial.print("reply was : ");
+  Serial.println(line);
+  Serial.println("closing connection");
+  Serial.println("==========");
+  Serial.println();
+```
+
 ## Output:
 ### Readings on IoT application Blynk:
 ![image](https://github.com/Pavan-Gv/MiniProject/assets/94827772/d1dc03ad-bfb0-45e3-bcbf-e098dd2361a5)
