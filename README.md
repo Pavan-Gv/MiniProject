@@ -295,7 +295,7 @@ void sen()
 ![Values Graph](https://github.com/Pavan-Gv/MiniProject/assets/94827772/f22b1efe-bdf8-4ebe-a1cb-d23d341bf577)
 ![A Vs P](https://github.com/Pavan-Gv/MiniProject/assets/94827772/d02cbbfd-6795-4906-825c-4e896530c19d)
 
-### ALERTS PRODUCED:
+### ALERTS GENERATED:
 ![Phone Notificaton](https://github.com/Pavan-Gv/MiniProject/assets/94827772/512b5720-74a8-451e-b017-ff30084bfaa9)
 ![Mail Notification](https://github.com/Pavan-Gv/MiniProject/assets/94827772/e2b250f5-1200-4b93-a948-376e2383c362)
 
